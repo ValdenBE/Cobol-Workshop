@@ -12,9 +12,13 @@ Il faut savoir que ce langage, bien que peu connu est omniprésent dans la vie d
 
 ## Pré requis :
 
-Pour ce tutoriel, nous utiliserons l'éditeur en ligne disponible sur le site de Paiza.io.
-Cela évitera les multiples installations et nous gagnerons ainsi du temps.
-Voici le site : [Paiza.io](https://paiza.io/en/projects/new?language=cobol)
+Pour ce tutoriel, nous utiliserons l'IDE OpenCobol, disponible via le site : 
+
+- [Version Ubuntu](https://launchpad.net/cobcide/+download)
+- [Version MacOs](https://launchpad.net/cobcide/+download)
+- [Version Windows](https://launchpad.net/cobcide/+download)
+
+Pour l'installer, suivez simplement les instructions.
 
 ## Hello, world ! :
 
