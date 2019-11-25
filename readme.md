@@ -30,7 +30,7 @@ Ouvrez l'éditeur et créer un nouveau fichier. Choisissez **" program "** et ch
 IDENTIFICATION DIVISION.
 PROGRAM-ID. YOUR-PROGRAM-NAME.
 ```
-Ceci est l'entéte du programme. Il est composé d' IDENTIFICATION DIVISION, qui est le nom de la division, et de PROGRAM-ID, qui sera toujours suivi du nom de votre programme
+Ceci est l'entéte du programme. Il est composé d' **"IDENTIFICATION DIVISION"**, qui est le nom de la division, et de **"PROGRAM-ID"**, qui sera toujours suivi du nom de votre programme
 
 ```sh
 DATA DIVISION.
@@ -50,7 +50,7 @@ Par défaut à la création du fichier, une procédure Hello World est déjà cr
 
 **"STOP RUN"**, quant à lui, permet simplement d'arréter le programme et **"END PROGRAM"** le ferme.
 
-Maintenant que vous avez vu la structure principale du fichier, vous pouvez cliquer sur le bouton "Compile" qui se trouve a gauche du bouton "Clear" dans la barre d'action, ce qui créera le fichier exéccutable de votre programme. Vous pourrez retrouver ce fichier dans le dossier "bin" qui se trouve au même endroit que le fichier que vous avez créer au début. Vous n'avez plus qu'à ouvrir un terminal à l'endroit ou se trouve le fichier compilé, et a lancé le fichier en tapant " ./NomDuFichier .
+Maintenant que vous avez vu la structure principale du fichier, vous pouvez cliquer sur le bouton "Compile" qui se trouve a gauche du bouton "Clear" dans la barre d'action, ce qui créera le fichier exécutable de votre programme. Vous pourrez retrouver ce fichier dans le dossier "bin" qui se trouve au même endroit que le fichier que vous avez créer au début. Vous n'avez plus qu'à ouvrir un terminal à l'endroit ou se trouve le fichier compilé, et a lancé le fichier en tapant " ./NomDuFichier .
 
 ## Allons un peux plus loin :
 
