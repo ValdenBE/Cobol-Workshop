@@ -18,7 +18,11 @@ Pour ce tutoriel, nous utiliserons l'IDE OpenCobol, disponible via le site :
 - [Version MacOs](https://launchpad.net/cobcide/+download)
 - [Version Windows](https://launchpad.net/cobcide/+download)
 
-Pour l'installer, suivez simplement les instructions.
+Pour l'installer, suivez simplement les instructions. Pour la version MacOs, vous aurez besoin d'installer open-cobol via homebrew grace a cette commande :
+
+```sh
+brew install gnu-cobol
+```
 
 ## Hello, world ! :
 
