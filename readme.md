@@ -184,3 +184,105 @@ IDENTIFICATION DIVISION.
 Résultat : Au lancement, le terminal nous demande notre prénom, puis nous dis bonjour.
 Rien de bien fou, je sais, mais sa permet déjà d'apréhender le Cobol.
 
+## Plus ou moins ? :
+
+Maintenant que nous avons vu comment créer une petite application simple en Cobol, nous allons voir quelque chose de plus complexe.
+
+Nous allons créer un programme qui demandera à l'utilisateur de choisir un nombre entre 1 et 100. Le programme le comparera avec un nombre généré aléatoirement, et nous répondra si le chiffre est soit plus grand, soit plus petit, soit si le chiffre est le bon.
+
+Donc, pour cet exercice, nous aurons besoin de plusieurs choses :
+
+- Deux variables entières, une qui stock le nombre aléatoire et l’autre le nombre entré par l’utilisateur.
+- Au minimum 4 plages dont une de saisie pour récupérer l’entrée de l’utilisateur.
+- Une fois le nombre entré, on le compare à celui de l’ordinateur et selon le cas on informe l’utilisateur.
+- Une boucle pour redemander plusieurs fois à l’utilisateur de taper un nombre s’il se trompe.
+
+Pour cet exercice, nous utiliserons la structure suivante :
+
+```sh
+      IDENTIFICATION DIVISION.
+      PROGRAM-ID. PlusOuMoins.
+
+      DATA DIVISION.
+      WORKING-STORAGE SECTION.
+
+      SCREEN SECTION.
+
+      PROCEDURE DIVISION.
+
+      STOP RUN.
+```
+
+Pour commencer, nous alons donc créer les deux variables dont nous avons besoin. 
+
+La variable qui va servir à enregistrer le nombre généré aléatoirement s'écrit comme ceci ( pour rappel, le type 999 représente donc une suite de 3 chiffres de 0 à 9 ) :
+
+```sh
+      77 nbAleatoire PIC 999.
+```
+Nous avons donc également besoin d'une variable qui enregistrera le choix de l'utilisateur, afin de le comparer au nombre aléatoire :
+
+```sh
+      77 nbEntree PIC 999.
+```
+
+Nous allons également créer une variable seed, qui nous sera utile pour généré le nombre aléatoire :
+
+```sh
+      77 seed PIC 9(8) VALUE 0.
+```
+
+Pour rappel, ces trois variables doivent être placées dans **"WORKING-STORAGE SECTION"**.
+
+Ensuite, nous avons donc besoin de 4 plages de texte, donc une avec saisie, nous allons donc les créer comme ceci :
+
+Voici la premiére plage, qui servira à clear le terminal, et a afficher le titre de l'application :
+
+```sh
+1 pla-titre.
+          2 BLANK SCREEN.
+          2 VALUE 'Plus ou moins ?'.
+```
+
+Ensuite, nous avons besoin de deux plages, qui renverrons "c'est plus" ou "c'est moins" suivant le résultat de la comparaison :
+
+```sh
+1 pla-plus.
+          2 VALUE 'C''est plus !'.
+1 pla-moins.
+          2 VALUE 'C''est moins !'.
+```
+ Ainsi qu'une plage qui nous préviendra si nous avons trouvé le bon chiffre :
+
+ ```sh
+ 1 pla-trouve.
+          2 LINE 4 COL 5 VALUE 'Bravo ! Vous avez trouve !'.
+```
+
+Et, pour finir, nous allons créer la plage qui va permettre de récupérer la réponse de l'utilisateur :
+
+```sh
+1 pls-nb.
+          2 LINE 6 COL 5 VALUE 'Veuillez entrer un nombre : '.
+          2 PIC zzz TO nbEntree REQUIRED.
+```
+
+( N'oubliez pas de renvoyer le choix de l'utilisateur dans la variable que nous avons créée tout à l'heure .)
+
+Une fois les plages créées, ils nous faut créer la procédure. Pour commencer nous allons initialiser la variable nbEntree, afin de lui définire une valeure de 0. ( Si nous ne le faisons pas, le compileur crashera )
+
+```sh
+INITIALIZE nbEntree.
+```
+
+Nous allons ensuite utiliser un paramétre afin de créer le seed. Dans ce cas, nous allons nous aider d'une fonction qui récupére la date du jour, puis l'envoyer dans la variable seed :
+
+```sh
+MOVE FUNCTION CURRENT-DATE(9:8) TO seed.
+```
+Ensuite, nous allons aficher le titre de l'application, puis généré le nombre aléatoire à l'aide de la fonction "random" et du seed créé précédement :
+
+```sh
+DISPLAY pla-titre.
+COMPUTE nbAleatoire = FUNCTION RANDOM (seed) * 100 + 1.
+```
