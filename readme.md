@@ -63,29 +63,24 @@ Maintenant que nous avons vu comment faire un "Hello, World !" simplement, nous 
 Pour ce faire, nous allons utiliser la structure suivante : 
 
 ```sh
-      IDENTIFICATION DIVISION.
-      PROGRAM-ID. Votre-programme.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. Votre-programme.
 
-      DATA DIVISION.
-      WORKING-STORAGE SECTION.
-         77 nomVariable PIC type.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
 
-      SCREEN SECTION.
-         1 instruction.
+SCREEN SECTION.
 
-      PROCEDURE DIVISION.
-      instruction1.
-      instruction2.
-      etc.
- 
-      STOP RUN.
+PROCEDURE DIVISION.
+
+STOP RUN.
 ```
 
 Que peux t'on remarqué en voyant ce code ? Nous allons d'abbord voir ce morceau de code :
 
 ```sh
- WORKING-STORAGE SECTION.
-         77 nomVariable PIC type.
+WORKING-STORAGE SECTION.
+    77 nomVariable PIC type.
 ```
 C'est ici que nous créons nos variables. La variable "nomVariable" est ici précédée du nombre 77, appellé étiquette. Ce nombre est simplement une convention de nommage des variables en Cobol.
 
@@ -110,8 +105,8 @@ Voici un exemple de code contenu dans cette section :
 
 ```sh
 1 NomDuScript.
-          2 BLANK SCREEN.
-          2 LINE 3 COL 15 VALUE 'Hello world !'.
+    2 BLANK SCREEN.
+    2 LINE 3 COL 15 VALUE 'Hello world !'.
 ```
 
 Nous allons décortiqué ensemble ce morceau de code.
@@ -135,50 +130,50 @@ Nous allons en suite créer un prompt qui se chargera de poser la question, ce p
 
 ```sh
 1 pls-prenom.
-               2 VALUE 'Quel est ton nom ? '.
-               2 PIC x(25) TO prenom REQUIRED.
+    2 VALUE 'Quel est ton nom ? '.
+    2 PIC x(25) TO prenom REQUIRED.
 ```
 Ainsi qu'un second affichage, qui renverra la valeur récupérée :
 
 ```sh
 1 pla-prenom.
-               2 VALUE 'Bonjour, '.
-               2 PIC x(25) FROM prenom.
+    2 VALUE 'Bonjour, '.
+    2 PIC x(25) FROM prenom.
 ```
 Et, pour finir, on affiche tout sa dans la console via ce code, qui sera placé dans **"PROCEDURE DIVISION"**:
 
 ```sh
 DISPLAY pls-nom.
-       ACCEPT pls-nom.
-       DISPLAY pla-nom.
-       DISPLAY '.'..
+ACCEPT pls-nom.
+DISPLAY pla-nom.
+DISPLAY '.'..
 ```
 
 Voici donc le code au complet :
 
 ```sh
 IDENTIFICATION DIVISION.
-       PROGRAM-ID. Votre-programme.
+PROGRAM-ID. Votre-programme.
 
-       DATA DIVISION.
-       WORKING-STORAGE SECTION.
-           77 prenom PIC x(25).
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+    77 prenom PIC x(25).
 
-       SCREEN SECTION.
-           1 pls-prenom.
-               2 VALUE 'Quel est ton prenom ? '.
-               2 PIC x(25) TO prenom REQUIRED.
-           1 pla-prenom.
-               2 VALUE 'Bonjour, '.
-               2 PIC x(25) FROM prenom.
+SCREEN SECTION.
+    1 pls-prenom.
+        2 VALUE 'Quel est ton prenom ? '.
+        2 PIC x(25) TO prenom REQUIRED.
+    1 pla-prenom.
+        2 VALUE 'Bonjour, '.
+        2 PIC x(25) FROM prenom.
 
-       PROCEDURE DIVISION.
+PROCEDURE DIVISION.
 
-       DISPLAY pls-prenom.
-       ACCEPT pls-prenom.
-       DISPLAY pla-prenom.
+DISPLAY pls-prenom.
+ACCEPT pls-prenom.
+DISPLAY pla-prenom.
 
-       STOP RUN.
+STOP RUN.
 ```
 
 Résultat : Au lancement, le terminal nous demande notre prénom, puis nous dis bonjour.
@@ -200,17 +195,17 @@ Donc, pour cet exercice, nous aurons besoin de plusieurs choses :
 Pour cet exercice, nous utiliserons la structure suivante :
 
 ```sh
-      IDENTIFICATION DIVISION.
-      PROGRAM-ID. PlusOuMoins.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PlusOuMoins.
 
-      DATA DIVISION.
-      WORKING-STORAGE SECTION.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
 
-      SCREEN SECTION.
+SCREEN SECTION.
 
-      PROCEDURE DIVISION.
+PROCEDURE DIVISION.
 
-      STOP RUN.
+STOP RUN.
 ```
 
 Pour commencer, nous alons donc créer les deux variables dont nous avons besoin. 
@@ -218,18 +213,18 @@ Pour commencer, nous alons donc créer les deux variables dont nous avons besoin
 La variable qui va servir à enregistrer le nombre généré aléatoirement s'écrit comme ceci ( pour rappel, le type 999 représente donc une suite de 3 chiffres de 0 à 9 ) :
 
 ```sh
-      77 nbAleatoire PIC 999.
+    77 nbAleatoire PIC 999.
 ```
 Nous avons donc également besoin d'une variable qui enregistrera le choix de l'utilisateur, afin de le comparer au nombre aléatoire :
 
 ```sh
-      77 nbEntree PIC 999.
+    77 nbEntree PIC 999.
 ```
 
 Nous allons également créer une variable seed, qui nous sera utile pour généré le nombre aléatoire :
 
 ```sh
-      77 seed PIC 9(8) VALUE 0.
+    77 seed PIC 9(8) VALUE 0.
 ```
 
 Pour rappel, ces trois variables doivent être placées dans **"WORKING-STORAGE SECTION"**.
@@ -240,8 +235,8 @@ Voici la premiére plage, qui servira à clear le terminal, et a afficher le tit
 
 ```sh
 1 pla-titre.
-          2 BLANK SCREEN.
-          2 VALUE 'Plus ou moins ?'.
+    2 BLANK SCREEN.
+    2 VALUE 'Plus ou moins ?'.
 ```
 
 Ensuite, nous avons besoin de deux plages, qui renverrons "c'est plus" ou "c'est moins" suivant le résultat de la comparaison :
@@ -256,15 +251,15 @@ Ensuite, nous avons besoin de deux plages, qui renverrons "c'est plus" ou "c'est
 
  ```sh
  1 pla-trouve.
-          2 LINE 4 COL 5 VALUE 'Bravo ! Vous avez trouve !'.
+    2 LINE 4 COL 5 VALUE 'Bravo ! Vous avez trouve !'.
 ```
 
 Et, pour finir, nous allons créer la plage qui va permettre de récupérer la réponse de l'utilisateur :
 
 ```sh
 1 pls-nb.
-          2 LINE 6 COL 5 VALUE 'Veuillez entrer un nombre : '.
-          2 PIC zzz TO nbEntree REQUIRED.
+    2 LINE 6 COL 5 VALUE 'Veuillez entrer un nombre : '.
+    2 PIC zzz TO nbEntree REQUIRED.
 ```
 
 ( N'oubliez pas de renvoyer le choix de l'utilisateur dans la variable que nous avons créée tout à l'heure .)
