@@ -1,4 +1,4 @@
-<h1 align="center">COBOL WORKSHOP</h1>
+<h1 align="center">COBOL WORKcobOP</h1>
 
 >Introduction au language Cobol via la création d'un mini jeu.
 
@@ -30,13 +30,13 @@ Pour introduire le language, nous allons commencer par créer un simple " Hello,
 
 Ouvrez l'éditeur et créer un nouveau fichier. Choisissez **" program "** et choisissez un endroit ou l'enregistrer ( Je vous conseille de le faire sur le bureau ). Une fois le fichier créé, vous pouvez déja remarquer quelques lignes de code. Nous allons les décortiquer ensemble. Un programme en Cobol est toujours composé de plusieurs divisions :
 
-```sh
+```cob
 IDENTIFICATION DIVISION.
 PROGRAM-ID. YOUR-PROGRAM-NAME.
 ```
 Ceci est l'entéte du programme. Il est composé d' **"IDENTIFICATION DIVISION"**, qui est le nom de la division, et de **"PROGRAM-ID"**, qui sera toujours suivi du nom de votre programme
 
-```sh
+```cob
 DATA DIVISION.
 FILE SECTION.
 WORKING-STORAGE SECTION.
@@ -62,7 +62,7 @@ Maintenant que nous avons vu comment faire un "Hello, World !" simplement, nous 
 
 Pour ce faire, nous allons utiliser la structure suivante : 
 
-```sh
+```cob
 IDENTIFICATION DIVISION.
 PROGRAM-ID. Votre-programme.
 
@@ -78,7 +78,7 @@ STOP RUN.
 
 Que peux t'on remarqué en voyant ce code ? Nous allons d'abbord voir ce morceau de code :
 
-```sh
+```cob
 WORKING-STORAGE SECTION.
     77 nomVariable PIC type.
 ```
@@ -88,11 +88,11 @@ Cette variable est également suivie de "PIC type". PIC est un mot clé qui perm
 
 Voici les différents types que nous pouvons utiliser :
 
-![exemples](Screenshot_1.png)
+![exemples](Screencobot_1.png)
 
 Voici un exemple : 
 
-```sh
+```cob
 77 nomVariable PIC 9.
 ```
 Ici, la variable contiendra donc un nombre de 0 à 9.
@@ -103,7 +103,7 @@ Cette section contiendra le code qui sera chargé de gérer les entrées et sort
 
 Voici un exemple de code contenu dans cette section :
 
-```sh
+```cob
 1 NomDuScript.
     2 BLANK SCREEN.
     2 LINE 3 COL 15 VALUE 'Hello world !'.
@@ -115,7 +115,7 @@ Nous avons donc le nom du script ( ici NomDuScript ), le paramétre "BLANK SCREE
 
 Les chiffres qui précédent le début de chaques lignes représentent la hiérarchie du script, et pour ce qui est du "LINE 3 COL 15", cela signifie juste que le texte s'affichera à la ligne 3, 15éme colonne, rien de bien compliqué. Cela permet de mettre en page notre application. 
 
-En ce qui concerne **"PROCEDURE DIVISION"**, nous l'avons déjà vu plus tôt dans le workshop.
+En ce qui concerne **"PROCEDURE DIVISION"**, nous l'avons déjà vu plus tôt dans le workcobop.
 
 Nous allons maintenant mettre tout sa en pratique. Nous allons récupérer une variable via un pompt dans le terminal, et le retourner sous forme de phrase dans le terminal. Pour l'exemple, le terminal nous demandera notre prénom, et nous répondra "Bonjour, VotrePrénom !"
 
@@ -123,26 +123,26 @@ Pour commencer, nous allons donc créer une variable dans **"WORKING-STORAGE SEC
 
 Voici la variable :
 
-```sh
+```cob
 77 prenom PIC x(25).
 ```
 Nous allons en suite créer un prompt qui se chargera de poser la question, ce prompt se trouvera donc dans la section **"SCREEN SECTION"** :
 
-```sh
+```cob
 1 pls-prenom.
     2 VALUE 'Quel est ton nom ? '.
     2 PIC x(25) TO prenom REQUIRED.
 ```
 Ainsi qu'un second affichage, qui renverra la valeur récupérée :
 
-```sh
+```cob
 1 pla-prenom.
     2 VALUE 'Bonjour, '.
     2 PIC x(25) FROM prenom.
 ```
 Et, pour finir, on affiche tout sa dans la console via ce code, qui sera placé dans **"PROCEDURE DIVISION"**:
 
-```sh
+```cob
 DISPLAY pls-nom.
 ACCEPT pls-nom.
 DISPLAY pla-nom.
@@ -151,7 +151,7 @@ DISPLAY '.'..
 
 Voici donc le code au complet :
 
-```sh
+```cob
 IDENTIFICATION DIVISION.
 PROGRAM-ID. Votre-programme.
 
@@ -194,7 +194,7 @@ Donc, pour cet exercice, nous aurons besoin de plusieurs choses :
 
 Pour cet exercice, nous utiliserons la structure suivante :
 
-```sh
+```cob
 IDENTIFICATION DIVISION.
 PROGRAM-ID. PlusOuMoins.
 
@@ -212,18 +212,18 @@ Pour commencer, nous alons donc créer les deux variables dont nous avons besoin
 
 La variable qui va servir à enregistrer le nombre généré aléatoirement s'écrit comme ceci ( pour rappel, le type 999 représente donc une suite de 3 chiffres de 0 à 9 ) :
 
-```sh
+```cob
     77 nbAleatoire PIC 999.
 ```
 Nous avons donc également besoin d'une variable qui enregistrera le choix de l'utilisateur, afin de le comparer au nombre aléatoire :
 
-```sh
+```cob
     77 nbEntree PIC 999.
 ```
 
 Nous allons également créer une variable seed, qui nous sera utile pour généré le nombre aléatoire :
 
-```sh
+```cob
     77 seed PIC 9(8) VALUE 0.
 ```
 
@@ -233,7 +233,7 @@ Ensuite, nous avons donc besoin de 4 plages de texte, donc une avec saisie, nous
 
 Voici la premiére plage, qui servira à clear le terminal, et a afficher le titre de l'application :
 
-```sh
+```cob
 1 pla-titre.
     2 BLANK SCREEN.
     2 VALUE 'Plus ou moins ?'.
@@ -241,7 +241,7 @@ Voici la premiére plage, qui servira à clear le terminal, et a afficher le tit
 
 Ensuite, nous avons besoin de deux plages, qui renverrons "c'est plus" ou "c'est moins" suivant le résultat de la comparaison :
 
-```sh
+```cob
 1 pla-plus.
           2 VALUE 'C''est plus !'.
 1 pla-moins.
@@ -249,14 +249,14 @@ Ensuite, nous avons besoin de deux plages, qui renverrons "c'est plus" ou "c'est
 ```
  Ainsi qu'une plage qui nous préviendra si nous avons trouvé le bon chiffre :
 
- ```sh
+ ```cob
  1 pla-trouve.
     2 LINE 4 COL 5 VALUE 'Bravo ! Vous avez trouve !'.
 ```
 
 Et, pour finir, nous allons créer la plage qui va permettre de récupérer la réponse de l'utilisateur :
 
-```sh
+```cob
 1 pls-nb.
     2 LINE 6 COL 5 VALUE 'Veuillez entrer un nombre : '.
     2 PIC zzz TO nbEntree REQUIRED.
@@ -264,20 +264,20 @@ Et, pour finir, nous allons créer la plage qui va permettre de récupérer la r
 
 ( N'oubliez pas de renvoyer le choix de l'utilisateur dans la variable que nous avons créée tout à l'heure .)
 
-Une fois les plages créées, ils nous faut créer la procédure. Pour commencer nous allons initialiser la variable nbEntree, afin de lui définire une valeure de 0. ( Si nous ne le faisons pas, le compileur crashera )
+Une fois les plages créées, ils nous faut créer la procédure. Pour commencer nous allons initialiser la variable nbEntree, afin de lui définire une valeure de 0. ( Si nous ne le faisons pas, le compileur cracobera )
 
-```sh
+```cob
 INITIALIZE nbEntree.
 ```
 
 Nous allons ensuite utiliser un paramétre afin de créer le seed. Dans ce cas, nous allons nous aider d'une fonction qui récupére la date du jour, puis l'envoyer dans la variable seed :
 
-```sh
+```cob
 MOVE FUNCTION CURRENT-DATE(9:8) TO seed.
 ```
 Ensuite, nous allons aficher le titre de l'application, puis généré le nombre aléatoire à l'aide de la fonction "random" et du seed créé précédement :
 
-```sh
+```cob
 DISPLAY pla-titre.
 COMPUTE nbAleatoire = FUNCTION RANDOM (seed) * 100 + 1.
 ```
