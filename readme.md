@@ -88,7 +88,7 @@ Cette variable est également suivie de "PIC type". PIC est un mot clé qui perm
 
 Voici les différents types que nous pouvons utiliser :
 
-![exemples](Screencobot_1.png)
+![exemples](Screenshot_1.png)
 
 Voici un exemple : 
 
