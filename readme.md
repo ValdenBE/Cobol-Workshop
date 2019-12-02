@@ -281,3 +281,31 @@ Ensuite, nous allons aficher le titre de l'application, puis généré le nombre
 DISPLAY pla-titre.
 COMPUTE nbAleatoire = FUNCTION RANDOM (seed) * 100 + 1.
 ```
+Nous allons ensuite créer l'action qui va se relancer tant que le nombre entré par l'utilisateur n'est pas le même que le nombre créé aléatoirement, et lancer les plages qui vont demander à l'utilisateur de rentrer un nombre :
+
+```cob
+PERFORM UNTIL nbEntree = nbAleatoire
+         DISPLAY pls-nb
+         ACCEPT pls-nb
+```
+( 'PERFORM UNTIL' est l'équivalent de 'do while' )
+
+Nous allons ensuite intégré une boucle 'if else' afin d'afficher " c'est plus  " ou "c'est moins " suivant la réponse de l'utilisateur :
+
+```cob
+IF nbEntree > nbAleatoire THEN
+             DISPLAY pla-moins
+         ELSE
+             DISPLAY pla-plus
+         END-IF
+```
+
+Et, pour finir, nous allons cloturer le 'PERFORM', display la plage " trouvé " et cloturer l'app :
+
+```cob
+END-PERFORM.
+
+      DISPLAY pla-trouve.
+
+      STOP RUN.
+```
