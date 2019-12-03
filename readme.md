@@ -1,4 +1,6 @@
-<h1 align="center">COBOL WORKcobOP</h1>
+<h1 align="center">COBOL WORKSHOP</h1>
+
+![logo](cobol.jpg)
 
 >Introduction au language Cobol via la création d'un mini jeu.
 
