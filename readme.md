@@ -11,7 +11,6 @@ Cobol est un langage de programmation créé en 1959 (officiellement le 18 septe
 
 Il faut savoir que ce langage, bien que peu connu est omniprésent dans la vie de tous les jours. Une grande majorité des transactions bancaires et des communications transitent par des programmes… en COBOL !
 
-
 ## Pré requis :
 
 Pour ce tutoriel, nous utiliserons l'IDE OpenCobol, disponible via le site : 
