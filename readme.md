@@ -117,7 +117,7 @@ Nous avons donc le nom du script ( ici NomDuScript ), le paramétre "BLANK SCREE
 
 Les chiffres qui précédent le début de chaques lignes représentent la hiérarchie du script, et pour ce qui est du "LINE 3 COL 15", cela signifie juste que le texte s'affichera à la ligne 3, 15éme colonne, rien de bien compliqué. Cela permet de mettre en page notre application. 
 
-En ce qui concerne **"PROCEDURE DIVISION"**, nous l'avons déjà vu plus tôt dans le workcobop.
+En ce qui concerne **"PROCEDURE DIVISION"**, nous l'avons déjà vu plus tôt dans le workshop.
 
 Nous allons maintenant mettre tout sa en pratique. Nous allons récupérer une variable via un pompt dans le terminal, et le retourner sous forme de phrase dans le terminal. Pour l'exemple, le terminal nous demandera notre prénom, et nous répondra "Bonjour, VotrePrénom !"
 
@@ -266,7 +266,7 @@ Et, pour finir, nous allons créer la plage qui va permettre de récupérer la r
 
 ( N'oubliez pas de renvoyer le choix de l'utilisateur dans la variable que nous avons créée tout à l'heure .)
 
-Une fois les plages créées, ils nous faut créer la procédure. Pour commencer nous allons initialiser la variable nbEntree, afin de lui définire une valeure de 0. ( Si nous ne le faisons pas, le compileur cracobera )
+Une fois les plages créées, ils nous faut créer la procédure. Pour commencer nous allons initialiser la variable nbEntree, afin de lui définire une valeure de 0. ( Si nous ne le faisons pas, le compileur crashera )
 
 ```cob
 INITIALIZE nbEntree.
